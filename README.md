@@ -9,6 +9,7 @@ To run project -
 2. Add `.env` file in root project directory and include this line `REACT_APP_STOCK_API_KEY=`.
 3. Get free api key from [finnhub.io](https://finnhub.io/).
 4. Add API key to `.env` file.
+5. `yarn start`
 
 ## Available Scripts
 
