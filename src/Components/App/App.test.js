@@ -1,8 +1,11 @@
-import { render, screen } from '@testing-library/react';
-import App from './App';
+import { shallow, render } from "enzyme"
+import App from "./App"
 
-test('renders learn react link', () => {
-  render(<App />);
-  const linkElement = screen.getByText(/learn react/i);
-  expect(linkElement).toBeInTheDocument();
-});
+it("renders without crashing", () => {
+    shallow(<App />)
+})
+
+it("renders button to fetch stocks", () => {
+    const wrapper = render(<App />)
+    expect(wrapper.find(".button-fetch-data")).toBeTruthy()
+})
