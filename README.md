@@ -3,6 +3,13 @@
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 any questions or inquiries can be sent to brittanyterbush@gmail.com
 
+#### Notes: 
+- [Material UI](https://material-ui.com/) used for design/ component library.
+- [Finnhub.io API](https://finnhub.io/) used to return list of stocks and individual stock quote data.
+- Tests use Enzyme/Jest
+- Mobile responsive
+
+
 ## Project Setup
 To run project -
 1. `yarn install`

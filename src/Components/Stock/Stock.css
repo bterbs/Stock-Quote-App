@@ -17,3 +17,9 @@
 .MuiButton-outlinedSecondary.no-outline {
 	border: none;
 }
+
+@media screen and (max-width: 764px){ 
+	.details-stock {
+		display: block;
+	}
+}
