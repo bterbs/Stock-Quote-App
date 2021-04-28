@@ -12,7 +12,7 @@ To run project -
 5. `yarn start`
 
 ## Project Specs
-Web Engineer Coding Exercise
+### Web Engineer Coding Exercise
 Create stock market quote app using React
 
 Demonstrate use of unit testing
@@ -27,7 +27,7 @@ Please commit your code via Github, Bitbucket or Gitlab repository with all comm
 Spend no more than 4 to 8 hours
  
 
-Stretch Goals
+#### Stretch Goals
 
 Responsive, works on mobile browser
 List of stocks is editable
