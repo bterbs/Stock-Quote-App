@@ -11,6 +11,28 @@ To run project -
 4. Add API key to `.env` file.
 5. `yarn start`
 
+## Project Specs
+Web Engineer Coding Exercise
+Create stock market quote app using React
+
+Demonstrate use of unit testing
+Application should work in a current Chrome browser
+Display a list of stocks in a table
+When a stock is selected, display details of the stock
+Stock quotes should be retrieved asynchronously from a source on the internet.
+Use whatever network library/mechanism you prefer to make your API requests
+The source you select for stock quotes should return a JSON response.
+Use whatever mechanism you prefer to parse the JSON response and render the content in your app
+Please commit your code via Github, Bitbucket or Gitlab repository with all commits intact
+Spend no more than 4 to 8 hours
+ 
+
+Stretch Goals
+
+Responsive, works on mobile browser
+List of stocks is editable
+Demonstrate use of Test Driven Development (TDD)
+
 ## Available Scripts
 
 In the project directory, you can run:
