@@ -13,11 +13,29 @@ class Stock extends React.Component {
     constructor(props) {
         super(props)
 
+        this.state = {
+            symbol: "",
+            stockPrice: ""
+        }
+
         this.removeStock = this.removeStock.bind(this)
+        this.fetchQuote = this.fetchQuote.bind(this)
     }
 
     removeStock(event) {
         this.props.onRemove(this.props.stock)
+    }
+
+    fetchQuote(event) {
+        this.props.onFetchQuote(this.props.stock.symbol)
+    }
+
+    static getDerivedStateFromProps(props) {
+        if (props.stock.symbol === props.quote.symbol) {
+            const { symbol, stockPrice } = props.quote
+            return { symbol, stockPrice }
+        }
+        return null
     }
 
     render() {
@@ -29,15 +47,19 @@ class Stock extends React.Component {
                         aria-controls="panel1a-content"
                         id="panel1a-header"
                     >
-                        <Typography>{this.props.stock.name}</Typography>
+                        <Typography>{this.props.stock.description}</Typography>
                     </AccordionSummary>
                     <AccordionDetails>
                         <ul className="details-stock">
-                            <li>Symbol: {this.props.stock.ticker}</li>
+                            <li>Symbol: {this.props.stock.symbol}</li>
                             <li>Currency: {this.props.stock.currency}</li>
-                            <li>
-                                Primary Exchange: {this.props.stock.primaryExch}
-                            </li>
+                            <li>Quote: {this.state.stockPrice}</li>
+                            <Button
+                                variant="contained"
+                                onClick={this.fetchQuote}
+                            >
+                                Get Quote
+                            </Button>
                         </ul>
                     </AccordionDetails>
                 </Accordion>

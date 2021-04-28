@@ -10,34 +10,57 @@ class App extends React.Component {
         super(props)
 
         this.state = {
-            isLoading: true,
             stocks: [],
+            stockQuote: {
+                symbol: "",
+                stockPrice: ""
+            },
             error: null
         }
 
         this.fetchStocks = this.fetchStocks.bind(this)
-        this.removeTrack = this.removeTrack.bind(this)
+        this.removeStock = this.removeStock.bind(this)
+        this.fetchStockQuote = this.fetchStockQuote.bind(this)
     }
 
     fetchStocks() {
         fetch(
-            `https://api.polygon.io/v2/reference/tickers?sort=ticker&perpage=50&page=1&apiKey=${API_KEY}`
+            `https://finnhub.io/api/v1/stock/symbol?exchange=US&token=${API_KEY}`
+        )
+            .then((response) => response.json())
+            .then((data) => {
+                console.log(data.slice(0, 50))
+                this.setState({
+                    stocks: data.slice(0, 50)
+                })
+            })
+            .catch((error) => this.setState({ error }))
+    }
+
+    fetchStockQuote(stock) {
+        console.log("stock symbole is " + stock)
+        const stockSymbol = stock
+        fetch(
+            `https://finnhub.io/api/v1/quote?symbol=${stock}&token=${API_KEY}`
         )
             .then((response) => response.json())
             .then((data) => {
                 this.setState({
-                    stocks: data.tickers,
-                    isLoading: false
+                    stockQuote: {
+                        symbol: `${stockSymbol}`,
+                        stockPrice: data.c
+                    }
                 })
+                console.log(data)
             })
-            .catch((error) => this.setState({ error, isLoading: false }))
+            .catch((error) => this.setState({ error }))
     }
 
-    removeTrack(stock) {
+    removeStock(stock) {
         console.log(this.state.stocks)
         let stocks = this.state.stocks
         stocks = stocks.filter(
-            (currentStock) => currentStock.ticker !== stock.ticker
+            (currentStock) => currentStock.symbol !== stock.symbol
         )
 
         this.setState({ stocks: stocks })
@@ -51,9 +74,9 @@ class App extends React.Component {
                         Stocks4U ✨
                     </Typography>
                     <Typography variant="subtitle1" gutterBottom>
-                        Return an editable list of stocks from the{" "}
-                        <a href="https://finnhub.io/docs/api/introduction">
-                            Finnhub Stocks API
+                        Return a semi-editable list of stocks from the{" "}
+                        <a href="https://polygon.io/docs/getting-started">
+                            Polygon.IO API
                         </a>
                         .
                     </Typography>
@@ -69,7 +92,9 @@ class App extends React.Component {
                 <Paper>
                     <StockList
                         stocks={this.state.stocks}
-                        onRemove={this.removeTrack}
+                        stockQuote={this.state.stockQuote}
+                        onRemove={this.removeStock}
+                        onFetchQuote={this.fetchStockQuote}
                     />
                 </Paper>
             </Container>

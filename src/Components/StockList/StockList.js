@@ -4,22 +4,22 @@ import "./StockList.css"
 
 import Stock from "../Stock/Stock"
 
-class StockList extends React.Component {
-    render() {
-        return (
-            <div className="StockList">
-                {this.props.stocks.map((stock, index) => {
-                    return (
-                        <Stock
-                            key={index}
-                            stock={stock}
-                            onRemove={this.props.onRemove}
-                        />
-                    )
-                })}
-            </div>
-        )
-    }
+function StockList(props) {
+    return (
+        <div className="StockList">
+            {props.stocks.map((stock, index) => {
+                return (
+                    <Stock
+                        key={index}
+                        stock={stock}
+                        quote={props.stockQuote}
+                        onRemove={props.onRemove}
+                        onFetchQuote={props.onFetchQuote}
+                    />
+                )
+            })}
+        </div>
+    )
 }
 
 export default StockList
