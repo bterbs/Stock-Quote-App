@@ -1,4 +1,4 @@
-# Stock Project / Technical Exercise for SIM team
+# Stock Project / Technical Exercise
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 any questions or inquiries can be sent to brittanyterbush@gmail.com
