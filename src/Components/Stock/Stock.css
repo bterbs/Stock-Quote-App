@@ -1,0 +1,19 @@
+.Stock {
+	display: flex;
+	justify-content: space-between;
+}
+
+.Stock-Item {
+	width: 100%;
+}
+
+.details-stock {
+	display: flex;
+    list-style: none;
+    width: 100%;
+    justify-content: space-between;
+}
+
+.MuiButton-outlinedSecondary.no-outline {
+	border: none;
+}

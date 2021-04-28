@@ -1,4 +1,11 @@
 import React from "react"
+import Accordion from "@material-ui/core/Accordion"
+import AccordionSummary from "@material-ui/core/AccordionSummary"
+import AccordionDetails from "@material-ui/core/AccordionDetails"
+import Typography from "@material-ui/core/Typography"
+import ExpandMoreIcon from "@material-ui/icons/ExpandMore"
+import Button from "@material-ui/core/Button"
+import DeleteIcon from "@material-ui/icons/Delete"
 
 import "./Stock.css"
 
@@ -13,21 +20,34 @@ class Stock extends React.Component {
         this.props.onRemove(this.props.stock)
     }
 
-    renderAction() {
-        return (
-            <button className="Stock-action" onClick={this.removeStock}>
-                -
-            </button>
-        )
-    }
-
     render() {
         return (
             <div className="Stock">
-                <div className="Stock-information">
-                    <h3>{this.props.stock.name}</h3>
-                </div>
-                {this.renderAction()}
+                <Accordion className="Stock-Item">
+                    <AccordionSummary
+                        expandIcon={<ExpandMoreIcon />}
+                        aria-controls="panel1a-content"
+                        id="panel1a-header"
+                    >
+                        <Typography>{this.props.stock.name}</Typography>
+                    </AccordionSummary>
+                    <AccordionDetails>
+                        <ul className="details-stock">
+                            <li>Symbol: {this.props.stock.ticker}</li>
+                            <li>Currency: {this.props.stock.currency}</li>
+                            <li>
+                                Primary Exchange: {this.props.stock.primaryExch}
+                            </li>
+                        </ul>
+                    </AccordionDetails>
+                </Accordion>
+                <Button
+                    className="Stock-action no-outline"
+                    onClick={this.removeStock}
+                    variant="outlined"
+                    color="secondary"
+                    endIcon={<DeleteIcon />}
+                ></Button>
             </div>
         )
     }

@@ -16,6 +16,7 @@ class App extends React.Component {
         }
 
         this.fetchStocks = this.fetchStocks.bind(this)
+        this.removeTrack = this.removeTrack.bind(this)
     }
 
     fetchStocks() {
@@ -24,13 +25,22 @@ class App extends React.Component {
         )
             .then((response) => response.json())
             .then((data) => {
-                console.log(data.tickers)
                 this.setState({
                     stocks: data.tickers,
                     isLoading: false
                 })
             })
             .catch((error) => this.setState({ error, isLoading: false }))
+    }
+
+    removeTrack(stock) {
+        console.log(this.state.stocks)
+        let stocks = this.state.stocks
+        stocks = stocks.filter(
+            (currentStock) => currentStock.ticker !== stock.ticker
+        )
+
+        this.setState({ stocks: stocks })
     }
 
     render() {
@@ -57,7 +67,10 @@ class App extends React.Component {
                     </Button>
                 </Paper>
                 <Paper>
-                    <StockList />
+                    <StockList
+                        stocks={this.state.stocks}
+                        onRemove={this.removeTrack}
+                    />
                 </Paper>
             </Container>
         )
