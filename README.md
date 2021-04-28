@@ -8,6 +8,7 @@ any questions or inquiries can be sent to brittanyterbush@gmail.com
 - [Finnhub.io API](https://finnhub.io/) used to return list of stocks and individual stock quote data.
 - Tests use Enzyme/Jest
 - Mobile responsive
+- Can remove stocks, but not create/add stocks.
 
 
 ## Project Setup
