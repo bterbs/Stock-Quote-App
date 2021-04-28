@@ -75,10 +75,7 @@ class App extends React.Component {
                     </Typography>
                     <Typography variant="subtitle1" gutterBottom>
                         Return a semi-editable list of stocks from the{" "}
-                        <a href="https://polygon.io/docs/getting-started">
-                            Polygon.IO API
-                        </a>
-                        .
+                        <a href="https://finnhub.io/">Finnhub Stock API</a>.
                     </Typography>
                     <Button
                         variant="contained"
