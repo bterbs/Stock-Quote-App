@@ -1,6 +1,14 @@
-# Getting Started with Create React App
+# Stock Project / Technical Exercise for SIM team
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+any questions or inquiries can be sent to brittanyterbush@gmail.com
+
+## Project Setup
+To run project -
+1. `yarn install`
+2. Add `.env` file in root project directory and include this line `REACT_APP_STOCK_API_KEY=`.
+3. Get free api key from [finnhub.io](https://finnhub.io/).
+4. Add API key to `.env` file.
 
 ## Available Scripts
 
