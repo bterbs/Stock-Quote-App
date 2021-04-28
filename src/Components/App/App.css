@@ -1,5 +1,10 @@
 .App {
   text-align: center;
+  padding: 3em;
+}
+
+.App .MuiPaper-root {
+  padding: 1em;
 }
 
 .App-logo {
